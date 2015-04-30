@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
         SpawnBlock(1,20, false);
     }
 
-    void SpawnBlock(int blockIndex, float position = 40, bool addToken = true)
+    void SpawnBlock(int blockIndex, float position = 1, bool addToken = true)
     {
         var go = GameObject.Instantiate(blocks[blockIndex], new Vector3(position, 2f, 0), Quaternion.identity) as GameObject;
 
@@ -62,11 +62,11 @@ public class GameManager : MonoBehaviour {
     {
         Block blockToRemove = null;
 
-        var deltaDistance = Time.fixedDeltaTime * 10;
+        var deltaDistance = Time.fixedDeltaTime * 20;  // initially 20(pre project)
 
         foreach (var block in movingBlocks)
         {
-            var blockPos = block.Move(deltaDistance);
+            var blockPos = block.Move(deltaDistance);  // moves the block
             if (blockPos < -30)
             {
                 blockToRemove = block;
