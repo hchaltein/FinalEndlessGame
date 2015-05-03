@@ -27,11 +27,11 @@ public class BackgroundControl : MonoBehaviour {
         tempz = background2.transform.position.z;
         background2.transform.position = new Vector3(tempx,tempy,tempz);
 
-        if(background1.transform.position.x <= -40)
-            background1.transform.position = new Vector3(39.9f, 0.0f, 1.0f);
+        if(background1.transform.position.x <= -80)
+            background1.transform.position = new Vector3(79.9f, 0.0f, 1.0f);
 
-        if (background2.transform.position.x <= -40)
-            background2.transform.position = new Vector3(39.9f, 0.0f, 1.0f);
+        if (background2.transform.position.x <= -80)
+            background2.transform.position = new Vector3(79.9f, 0.0f, 1.0f);
 
 	} // end update
 

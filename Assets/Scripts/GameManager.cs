@@ -62,12 +62,12 @@ public class GameManager : MonoBehaviour {
     {
         Block blockToRemove = null;
 
-        var deltaDistance = Time.fixedDeltaTime * 20;  // initially 20(pre project)
+        var deltaDistance = Time.fixedDeltaTime * 30;  // initially 20(pre project)
 
         foreach (var block in movingBlocks)
         {
             var blockPos = block.Move(deltaDistance);  // moves the block
-            if (blockPos < -30)
+            if (blockPos < -60)
             {
                 blockToRemove = block;
             }
@@ -84,13 +84,13 @@ public class GameManager : MonoBehaviour {
         {
 			if (movingBlocks.Count != 0)
 			{
-				SpawnBlock(nextBlockID, lastBlock.transform.position.x + 20.0f);
+				SpawnBlock(nextBlockID, lastBlock.transform.position.x + 40.0f);
 			}
 			else
 			{
 				SpawnBlock(nextBlockID, 0.0f);
 			}
-			targetDistance += 20;
+			targetDistance += 40;
 
             nextBlockID = -1;
         }

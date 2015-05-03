@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour {
 
-    private Vector2 jumpForce = new Vector2(0, 25);
+    private Vector2 jumpForce = new Vector2(0, 35);
     private bool hasExtraJump;
 
 	// Use this for initialization
