@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
-    GameObject[] blocks;
+    public GameObject[] blocks;
     List<Block> movingBlocks;
 
     [SerializeField]
@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour {
 
     float distance = 0;
     float targetDistance = 20;
-    private GameObject lastBlock;
-    int nextBlockID;
+    public GameObject lastBlock;
+    public int nextBlockID;
 
     void Awake()
     {
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
         SpawnBlock(1,20, false);
     }
 
-    void SpawnBlock(int blockIndex, float position = 1, bool addToken = true)
+    public void SpawnBlock(int blockIndex, float position = 1, bool addToken = true)
     {
         var go = GameObject.Instantiate(blocks[blockIndex], new Vector3(position, 2f, 0), Quaternion.identity) as GameObject;
 

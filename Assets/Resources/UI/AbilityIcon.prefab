@@ -61,6 +61,8 @@ GameObject:
   - 224: {fileID: 22492620}
   - 222: {fileID: 22292620}
   - 114: {fileID: 11492620}
+  - 114: {fileID: 11482070}
+  - 225: {fileID: 22577534}
   m_Layer: 5
   m_Name: AbilityIcon
   m_TagString: Untagged
@@ -127,6 +129,17 @@ MonoBehaviour:
   m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
+--- !u!114 &11482070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c55e5fe7862b45a16e2d620e94554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11492616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,6 +327,17 @@ RectTransform:
   m_AnchoredPosition: {x: -7.62939453e-06, y: 0}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: .5, y: .5}
+--- !u!225 &22577534
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192620}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

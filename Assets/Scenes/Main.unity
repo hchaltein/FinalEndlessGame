@@ -102,7 +102,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &287674329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e856b2d8f1fd28e4db385391df4aed81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blocks: []
   tokenPrefab: {fileID: 186802, guid: a6e9fe52d0d2b1549b1756a0ab03681f, type: 2}
+  lastBlock: {fileID: 0}
+  nextBlockID: 0
 --- !u!114 &287674330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472258, guid: 4a802d30ca9636649b758ca52cc70001, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a802d30ca9636649b758ca52cc70001, type: 2}
@@ -184,6 +187,7 @@ GameObject:
   - 50: {fileID: 591470019}
   - 61: {fileID: 591470018}
   - 114: {fileID: 591470017}
+  - 114: {fileID: 591470022}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -262,6 +266,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &591470022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591470016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c55e5fe7862b45a16e2d620e94554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &831235295
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +372,7 @@ GameObject:
   - 33: {fileID: 1090764512}
   - 64: {fileID: 1090764511}
   - 23: {fileID: 1090764510}
+  - 114: {fileID: 1090764514}
   m_Layer: 0
   m_Name: Plane2
   m_TagString: Untagged
@@ -416,6 +432,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &1090764514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1090764509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6c55e5fe7862b45a16e2d620e94554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1494130048
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +482,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1755853400
 GameObject:
   m_ObjectHideFlags: 0
