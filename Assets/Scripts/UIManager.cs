@@ -65,7 +65,7 @@ public class UIManager : Singleton<UIManager>
 			newAbilityGO = (GameObject)GameObject.Instantiate(AbilityIconPrefab, Vector3.zero, Quaternion.identity);
 
 			newAbilityGO.transform.SetParent(abilityFolder.transform);
-			newAbilityGO.transform.position = new Vector3(i * 65, 65, 0);
+			newAbilityGO.transform.position = new Vector3(1400, 700 - (i*65), 0);
 			newAbilityGO.name = "Ability (" + (i + 1) % 10 + ")";
 
 			newAbility.index = i;

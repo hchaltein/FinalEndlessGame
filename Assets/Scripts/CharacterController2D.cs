@@ -40,6 +40,7 @@ public class CharacterController2D : MonoBehaviour {
         var jumpPressed = Input.GetButtonDown("Jump");
         var jump = jumpPressed && (isGrounded || hasExtraJump);
 
+
         var vel = rigidbody2D.velocity;
         vel.x = 0;
 
@@ -56,6 +57,9 @@ public class CharacterController2D : MonoBehaviour {
             // burn extra jump if was not grounded
             if (!isGrounded) hasExtraJump = false;
         }
+
+
+        var shrink = Input.GetButton("Fire2");
 
     }
 
