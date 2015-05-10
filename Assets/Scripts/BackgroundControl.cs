@@ -17,12 +17,12 @@ public class BackgroundControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        float tempx = background1.transform.position.x - 0.1f;
+        float tempx = background1.transform.position.x - 0.3f;
         float tempy = background1.transform.position.y;
         float tempz = background1.transform.position.z;
         background1.transform.position = new Vector3(tempx, tempy, tempz);
 
-        tempx = background2.transform.position.x - 0.1f;
+        tempx = background2.transform.position.x - 0.3f;
         tempy = background2.transform.position.y;
         tempz = background2.transform.position.z;
         background2.transform.position = new Vector3(tempx,tempy,tempz);

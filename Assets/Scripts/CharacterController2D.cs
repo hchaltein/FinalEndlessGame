@@ -5,7 +5,10 @@ using System.Collections.Generic;
 public class CharacterController2D : MonoBehaviour {
 
     private Vector2 jumpForce = new Vector2(0, 35);
+    private Vector2 jumpForce2 = new Vector2(0, 15);
     private bool hasExtraJump;
+    private bool isShrunk;
+    private float timePassed;
 
 	// Use this for initialization
 	void Awake () {
@@ -18,7 +21,7 @@ public class CharacterController2D : MonoBehaviour {
         var pos = (Vector2)transform.position;
 
         // check death state
-        if (pos.y < -10)
+        if (pos.y < -10 || pos.x < -40)
         {
             Destroy(gameObject);
             // TODO: death screen
@@ -51,15 +54,45 @@ public class CharacterController2D : MonoBehaviour {
 
         if (jump) 
         {
+            
+            if(isShrunk)
+            {
+                rigidbody2D.AddForce(jumpForce2, ForceMode2D.Impulse);
+            }
+            else
+            { 
+                // apply force
+                rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
+            }
+            
+
             // apply force
             rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
-            
             // burn extra jump if was not grounded
             if (!isGrounded) hasExtraJump = false;
         }
 
+        
+        var shrinkPressed = Input.GetButtonDown("Fire3");
+        if (shrinkPressed)
+        {
+            isShrunk = true;
+            transform.localScale -= new Vector3(0, 0.5f, 0);
+        }
 
-        var shrink = Input.GetButton("Fire2");
+        if(isShrunk)
+        {
+            timePassed++;
+        }
+
+        if(timePassed >= 120)
+        {
+            isShrunk = false;
+            timePassed = 0;
+            transform.localScale += new Vector3(0, 2.0f, 0);
+        }
+        
+
 
     }
 

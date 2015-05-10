@@ -65,8 +65,9 @@ public class UIManager : Singleton<UIManager>
 			newAbilityGO = (GameObject)GameObject.Instantiate(AbilityIconPrefab, Vector3.zero, Quaternion.identity);
 
 			newAbilityGO.transform.SetParent(abilityFolder.transform);
-			newAbilityGO.transform.position = new Vector3(1400, 700 - (i*65), 0);
-			newAbilityGO.name = "Ability (" + (i + 1) % 10 + ")";
+			//newAbilityGO.transform.position = new Vector3(1400, 700 - (i*65), 0);
+            newAbilityGO.transform.position = new Vector3(0, 700 - (i * 65), 0);
+            newAbilityGO.name = "Ability (" + (i + 1) % 10 + ")";
 
 			newAbility.index = i;
 			if (i == 0)
@@ -78,7 +79,8 @@ public class UIManager : Singleton<UIManager>
 			else
 			{
 				newAbility.cooldownDuration = 10;
-				newAbility.charges = Random.Range(0, 5);
+                //newAbility.charges = Random.Range(0, 5);
+                newAbility.charges = 5;
 				newAbility.unlimited = false;
 
 			}

@@ -253,7 +253,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 024367915e20e6a42b3fc6880f14ae5b, type: 3}
-  m_Color: {r: .0136245694, g: .20588237, b: .20588237, a: 1}
+  m_Color: {r: 1, g: 0, b: .0620689392, a: 1}
 --- !u!4 &591470021
 Transform:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 34f59a9a9cd586d47bd5a13c8a86f81e, type: 2}
+  - {fileID: 2100000, guid: 80d4633dca0b9cc468c362b152afe818, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -513,7 +513,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 34f59a9a9cd586d47bd5a13c8a86f81e, type: 2}
+  - {fileID: 2100000, guid: 80d4633dca0b9cc468c362b152afe818, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

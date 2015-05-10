@@ -9,6 +9,7 @@ public class Token : MonoBehaviour {
 	void Start () {
         ui = UIManager.Instance;
         abilityIndex = Random.Range(1, 10) + 1;
+        //abilityIndex = 5;
         Debug.Log("Ability/" + (abilityIndex % 10).ToString("00"));
         var sprite = Resources.Load<Sprite>("Abilities/" + (abilityIndex % 10).ToString("00"));
         var srenderer = transform.FindChild("Sprite").GetComponent<SpriteRenderer>();
