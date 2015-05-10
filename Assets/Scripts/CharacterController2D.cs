@@ -77,7 +77,7 @@ public class CharacterController2D : MonoBehaviour {
         if (shrinkPressed)
         {
             isShrunk = true;
-            transform.localScale -= new Vector3(0, 0.5f, 0);
+            transform.localScale = new Vector3(1.0f, 0.5f, 1.0f);
         }
 
         if(isShrunk)
@@ -85,11 +85,11 @@ public class CharacterController2D : MonoBehaviour {
             timePassed++;
         }
 
-        if(timePassed >= 120)
+        if(timePassed >= 30)
         {
             isShrunk = false;
             timePassed = 0;
-            transform.localScale += new Vector3(0, 2.0f, 0);
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
         
 

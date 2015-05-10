@@ -7,6 +7,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Vector3 startPos;
     GameManager gameManager;
 
+    void Awake()
+    {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
 
 	public void OnBeginDrag(PointerEventData eventData){
 
@@ -33,10 +37,5 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         
         blockDragged = null;
 	}
-
-    void Awake()
-    {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
 
 }

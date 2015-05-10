@@ -23,53 +23,56 @@ public class UIManager : Singleton<UIManager>
 	public override void Awake()
 	{
 		base.Awake();
-
-		
 	}
 
 	public void Init()
 	{
-		Abilities = new List<Ability>();
+		// List of Abilitys
+        Abilities = new List<Ability>();
 
 		//Load the UI element
-
 		AbilityIconPrefab = Resources.Load<GameObject>("UI/AbilityIcon");
 		ScreenSpaceOverlayPrefab = Resources.Load<GameObject>("UI/SS - Overlay");
 
-		GameObject go = GameObject.Find("SS - Overlay");
+		// Find Canvas Objects to load Ability Icons to:
+        GameObject go = GameObject.Find("SS - Overlay");
 		if (go != null)
 		{
-			UIROOT = go.GetComponent<Canvas>();
+			// Get Canvas component from SS Overlay
+            UIROOT = go.GetComponent<Canvas>();
 		}
 		if (UIROOT == null)
 		{
+            // Instantiate SS Overlay and Get Canvas component from it.
 			UIROOT = ((GameObject)GameObject.Instantiate(ScreenSpaceOverlayPrefab, Vector3.zero, Quaternion.identity)).GetComponent<Canvas>();
 			UIROOT.gameObject.name = ScreenSpaceOverlayPrefab.name;
 		}
 
-		//pause_Menu = GameObject.Find("Pause Menu").GetComponent<Canvas>();
-
-		Icons = new Sprite[10];
-
+		// Loads all Ability Sprites to be loaded on the buttoms
+        Icons = new Sprite[10];
 		Icons = Resources.LoadAll<Sprite>("Abilities");
 
-		//Icons = Resources.LoadAll<Sprite>("Icons/");
-
+        // Get Abilities Folder Object from Screen Overlay.
 		GameObject abilityFolder = UIROOT.transform.FindChild("Abilities").gameObject;
 
-		GameObject newAbilityGO;
-		for (int i = 0; i < 10; i++)
+		// Instantiate all abilities.
+        GameObject newAbilityGO;
+		for (int i = 0; i < 3; i++)
 		{
+            // Instantiate the Ability Object.
 			Ability newAbility = new Ability();
 
-			newAbilityGO = (GameObject)GameObject.Instantiate(AbilityIconPrefab, Vector3.zero, Quaternion.identity);
+			// Instantiate Ability Container PreFab.
+            newAbilityGO = (GameObject)GameObject.Instantiate(AbilityIconPrefab, Vector3.zero, Quaternion.identity);
 
+            // Put the Game Object inside the Abilities Folder
 			newAbilityGO.transform.SetParent(abilityFolder.transform);
-			//newAbilityGO.transform.position = new Vector3(1400, 700 - (i*65), 0);
-            newAbilityGO.transform.position = new Vector3(0, 700 - (i * 65), 0);
-            newAbilityGO.name = "Ability (" + (i + 1) % 10 + ")";
+			newAbilityGO.transform.position = new Vector3(0, (i*80), 0);
+            newAbilityGO.name = "Ability " + (i + 1) % 10;
 
-			newAbility.index = i;
+			
+            // Set Up Abilities charges and Cooldown.
+            newAbility.index = i;
 			if (i == 0)
 			{
 				newAbility.charges = 999999;
@@ -85,8 +88,10 @@ public class UIManager : Singleton<UIManager>
 
 			}
 
-			newAbility.cooldownLeft = 0;
+			// Reset Ability Cooldown counter.
+            newAbility.cooldownLeft = 0;
 
+            // Set Up Ability Background and Icon sprite.
 			newAbility.AbilityContainer = newAbilityGO;
 			newAbility.AbilityBackground = newAbilityGO.transform.FindChild("Background").GetComponent<Image>();
 			newAbility.AbilityIcon = newAbilityGO.transform.FindChild("AbilityIcon").GetComponent<Image>();
@@ -115,9 +120,6 @@ public class UIManager : Singleton<UIManager>
 
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			
-
-
 			if(paused)
 			{
 				UnpauseGame();
@@ -127,7 +129,6 @@ public class UIManager : Singleton<UIManager>
 				PauseGame();
 			}
 		}
-
 		if (Input.GetKeyDown(KeyCode.T))
 		{
 			for (int i = 0; i < Abilities.Count; i++)
@@ -145,6 +146,7 @@ public class UIManager : Singleton<UIManager>
 
 		if (!paused)
 		{
+
 #if !UNITY_EDITOR
 			Screen.lockCursor = true;
 #endif
