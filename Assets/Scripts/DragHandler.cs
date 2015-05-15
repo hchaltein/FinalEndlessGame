@@ -27,10 +27,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public void OnEndDrag(PointerEventData eventData){
 
-        int blocktoSpawn = Random.Range(0, 9);
+        int blocktoSpawn = Random.Range(0, 2);
         UIManager.Instance.Abilities[blocktoSpawn].UseAbility();
         
-        gameManager.SpawnBlock(blocktoSpawn, 
+         gameManager.SpawnBlock(blocktoSpawn, 
                                 gameManager.lastBlock.transform.position.x + 40.0f);
         
         transform.position = startPos;

@@ -8,5 +8,8 @@ public class SetupUI : MonoBehaviour
 		UIManager.Instance.Init();
 		UIManager.Instance.paused = false;
 		Destroy(gameObject);
-	}
+
+        Screen.showCursor = true;
+
+    }
 }

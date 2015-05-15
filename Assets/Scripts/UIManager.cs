@@ -17,7 +17,7 @@ public class UIManager : Singleton<UIManager>
 
 	public Sprite[] Icons;
 
-	public bool canUse;
+    public bool canUse;
 	public bool paused;
 
 	public override void Awake()
@@ -60,33 +60,23 @@ public class UIManager : Singleton<UIManager>
 		for (int i = 0; i < 3; i++)
 		{
             // Instantiate the Ability Object.
-			Ability newAbility = new Ability();
+            Ability newAbility = ScriptableObject.CreateInstance<Ability>();
 
 			// Instantiate Ability Container PreFab.
-            newAbilityGO = (GameObject)GameObject.Instantiate(AbilityIconPrefab, Vector3.zero, Quaternion.identity);
+            newAbilityGO = (GameObject) GameObject.Instantiate(AbilityIconPrefab, Vector3.zero, Quaternion.identity);
 
             // Put the Game Object inside the Abilities Folder
 			newAbilityGO.transform.SetParent(abilityFolder.transform);
-			newAbilityGO.transform.position = new Vector3(0, (i*80), 0);
+			newAbilityGO.transform.localPosition = new Vector3(0.0f, (i*80.0f), 0.0f);
             newAbilityGO.name = "Ability " + (i + 1) % 10;
 
 			
             // Set Up Abilities charges and Cooldown.
             newAbility.index = i;
-			if (i == 0)
-			{
-				newAbility.charges = 999999;
-				newAbility.unlimited = true;
-				newAbility.cooldownDuration = Random.Range(8, 15);
-			}
-			else
-			{
-				newAbility.cooldownDuration = 10;
-                //newAbility.charges = Random.Range(0, 5);
-                newAbility.charges = 5;
-				newAbility.unlimited = false;
-
-			}
+		
+            newAbility.cooldownDuration = Random.Range(1, 3);
+            newAbility.charges = 5;
+			newAbility.unlimited = false;
 
 			// Reset Ability Cooldown counter.
             newAbility.cooldownLeft = 0;
@@ -158,11 +148,6 @@ public class UIManager : Singleton<UIManager>
 		paused = true;
 		Time.timeScale = 0f;
 		//pause_Menu.gameObject.SetActive(paused);
-
-		//Bring in the elements for the pause menu
-		//Unlock the mouse
-		Screen.lockCursor = false;
-		Screen.showCursor = true;
 	}
 
 	public void UnpauseGame()
@@ -170,11 +155,5 @@ public class UIManager : Singleton<UIManager>
 		paused = false;
 		Time.timeScale = 1.0f;
 		//pause_Menu.gameObject.SetActive(paused);
-		
-#if !UNITY_EDITOR
-		//Lock the mouse
-		Screen.lockCursor = true;
-		Screen.showCursor = false;
-#endif
 	}
 }

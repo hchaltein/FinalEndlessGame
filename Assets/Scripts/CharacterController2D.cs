@@ -30,7 +30,7 @@ public class CharacterController2D : MonoBehaviour {
         }
 
         var hit = Physics2D.OverlapArea(
-            pointA: pos + new Vector2(-0.45f, -0.5f),
+            pointA: pos + new Vector2(-0.45f, -1.1f),
             pointB: pos + new Vector2( 0.45f,  0.0f),
             layerMask: (1 << LayerMask.NameToLayer("Platform")));
 
@@ -42,58 +42,45 @@ public class CharacterController2D : MonoBehaviour {
 
         var jumpPressed = Input.GetButtonDown("Jump");
         var jump = jumpPressed && (isGrounded || hasExtraJump);
-
-
-        var vel = rigidbody2D.velocity;
-        vel.x = 0;
-
-        // clear vertical velocity if player is about to jump
-        if (jump) vel.y = 0;
-
-        rigidbody2D.velocity = vel;
-
-        if (jump) 
-        {
-            
-            if(isShrunk)
-            {
-                rigidbody2D.AddForce(jumpForce2, ForceMode2D.Impulse);
-            }
-            else
-            { 
-                // apply force
-                rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
-            }
-            
-
-            // apply force
-            rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
-            // burn extra jump if was not grounded
-            if (!isGrounded) hasExtraJump = false;
-        }
-
         
-        var shrinkPressed = Input.GetButtonDown("Fire3");
+        var shrinkPressed = Input.GetButtonDown("Fire1");
+
+        // Deals with shrinking:
         if (shrinkPressed)
         {
             isShrunk = true;
             transform.localScale = new Vector3(1.0f, 0.5f, 1.0f);
         }
 
-        if(isShrunk)
+        if (isShrunk)
         {
             timePassed++;
         }
 
-        if(timePassed >= 30)
+        if (timePassed >= 30)
         {
             isShrunk = false;
             timePassed = 0;
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
         }
         
+        
+        // Deals with Jumping
+        var vel = rigidbody2D.velocity;
+        vel.x = 0;
+ 
+       // clear vertical velocity if player is about to jump
+        if (jump) vel.y = 0;
 
+        rigidbody2D.velocity = vel;
 
+        if (jump) 
+        {
+            // apply force
+            rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
+            // burn extra jump if was not grounded
+            if (!isGrounded) hasExtraJump = false;
+        }
     }
 
     void FixedUpdate() {
